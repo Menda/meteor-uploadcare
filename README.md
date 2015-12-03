@@ -8,3 +8,8 @@ At this stage, we don't recommend using this package as we will be switching fro
 
 ### Credits
 This package is based up Nate Strauser's <a href="https://github.com/nate-strauser/meteor-uploadcare-plus/">uploadcare-plus</a> package. We've updated the widget version and included our own methods.
+
+### To Do
+- Switch from UUIDs to CDN urls
+- Make store user media optional
+- Add more detailed documentation

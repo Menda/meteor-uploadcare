@@ -6,8 +6,7 @@ Meteor.methods({
 
     this.unblock();
 
-    HTTP.call(
-      'PUT',
+    HTTP.put(
       'https://api.uploadcare.com/files/' + uuid + '/storage/', {
         headers: {
           Accept: 'application/json',
@@ -31,8 +30,7 @@ Meteor.methods({
 
     this.unblock();
 
-    HTTP.call(
-      'DELETE',
+    HTTP.del(
       'https://api.uploadcare.com/files/' + uuid + '/', {
         headers: {
           Accept: 'application/json',
