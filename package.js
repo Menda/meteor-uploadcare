@@ -2,7 +2,7 @@ Package.describe({
   name: 'smalljoys:uploadcare',
   version: '0.0.1',
   summary: 'Joyful Meteor and Uploadcare integration',
-  git: '',
+  git: 'https://github.com/smalljoys/meteor-uploadcare',
   documentation: 'README.md'
 });
 
