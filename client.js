@@ -8,8 +8,12 @@ loadUploadcare = function(key, callback){
 
       // Functions to run after the script tag has loaded
       var loadCallback = function() {
-        if (Object.prototype.toString.call(callback) === "[object Function]")
+        if (Object.prototype.toString.call(callback) === "[object Function]") {
+          if(typeof console !== "undefined") {
+            console.log("Uploadcare loaded");
+          }
           callback();
+        }
       };
 
       // If the script doesn't load
@@ -29,10 +33,14 @@ loadUploadcare = function(key, callback){
       // Load the script tag
       document.getElementsByTagName('head')[0].appendChild(script);
 
-    }else{
+    } else{
       if(typeof console !== "undefined") {
         console.log("Couldn't load uploadcare - no public key set");
       }
+    }
+  } else {
+    if(typeof console !== "undefined") {
+      console.log("Uploadcare already loaded");
     }
   }
 };

@@ -16,4 +16,5 @@ Package.onUse(function(api) {
   api.addFiles(['server.js'],'server');
 
   api.export('loadUploadcare', 'client');
+  api.export(['addToMediaStorage', 'removeFromMediaStorage'], ['client','server']);
 });
