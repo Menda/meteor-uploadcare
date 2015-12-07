@@ -12,6 +12,10 @@ Meteor.methods({
 
     console.log(image);
 
+    let uuid = image.match(/[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/);
+
+    console.log(uuid);
+
     HTTP.call(
       'PUT',
       'https://api.uploadcare.com/files/' + uuid + '/storage/', {
@@ -48,8 +52,15 @@ Meteor.methods({
 
     this.unblock();
 
-    HTTP.del(
-      image, {
+    console.log(image);
+
+    let uuid = image.match(/[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/);
+
+    console.log(uuid);
+
+    HTTP.call(
+      'DELETE',
+      'https://api.uploadcare.com/files/' + uuid + '/storage/', {
         headers: {
           Accept: 'application/json',
           Date: new Date().toJSON(),
