@@ -1,4 +1,17 @@
-loadUploadcare = function(key, callback){
+Ucare = {};
+
+Ucare.store = function(image, user) {
+  Meteor.call('addToMediaStorage', image, user);
+};
+
+Ucare.delete = function(image, user) {
+  Meteor.call('removeFromMediaStorage', image, user);
+};
+
+//---------
+
+Ucare.load = function(key, callback) {
+
   if(typeof uploadcare === "undefined"){
     if(!key && Meteor.settings && Meteor.settings.public && Meteor.settings.public.uploadcare && Meteor.settings.public.uploadcare.publickey)
         key = Meteor.settings.public.uploadcare.publickey;

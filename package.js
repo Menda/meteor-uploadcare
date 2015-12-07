@@ -13,10 +13,10 @@ Package.onUse(function(api) {
   api.use(['underscore','check','http'], 'client');
   api.use(['browser-policy@1.0.5'], 'server', {weak: false, unordered: false});
 
-  api.addFiles(['client.js'],'client');
-  api.addFiles(['server.js'],'server');
+  api.addFiles(['ucare.js'],'client');
+  api.addFiles(['methods.js'],'server');
   api.addFiles(['policy.js'],'server');
 
-  api.export('loadUploadcare', 'client');
+  api.export('Ucare', 'client');
   api.export(['addToMediaStorage', 'removeFromMediaStorage'], ['client','server']);
 });
