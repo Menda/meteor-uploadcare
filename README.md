@@ -9,7 +9,7 @@ Note: This package is developed for the <a href="http://smalljoys.co">Small Joys
 Add the package to your project:
 
 ```js
-meteor add smalljoys:meteor-uploadcare
+meteor add smalljoys:uploadcare
 ```
 
 You can load the Uploadcare library (2.5.5) in your router or directly into a template by using
