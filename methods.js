@@ -4,17 +4,13 @@ Meteor.methods({
 
   addToMediaStorage: function (image, user) {
     check(image, String);
-    check(user, String);
+    check(user, Match.Optional(String));
 
     this.unblock();
 
     var future = new Future();
 
-    console.log(image);
-
     let uuid = image.match(/[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/);
-
-    console.log(uuid);
 
     HTTP.call(
       'PUT',
@@ -52,11 +48,7 @@ Meteor.methods({
 
     this.unblock();
 
-    console.log(image);
-
     let uuid = image.match(/[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/);
-
-    console.log(uuid);
 
     HTTP.call(
       'DELETE',
