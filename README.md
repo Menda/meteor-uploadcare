@@ -47,7 +47,7 @@ We've added two functions which let you store and remove from Uploadcare. This i
 ```js
 //Both functions will take a cdnLink or uuid
 Ucare.store(cdnLink);
-Ucare.remove(uuid);
+Ucare.delete(uuid);
 ```
 
 ### Logging User Media
