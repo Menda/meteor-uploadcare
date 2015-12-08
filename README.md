@@ -11,6 +11,25 @@ Note: This package is developed for the <a href="http://smalljoys.co">Small Joys
 meteor add smalljoys:uploadcare
 ```
 
+### Add your Uploadcare API keys
+
+To use <a href="https://uploadcare.com/">Uploadcare</a> you'll need an account (free up to 500 uploads a month). Once you've set up a project you'll have two keys, one public, one secret. Just add them to your Meteor settings like this:
+
+``` js
+{
+  "public": {
+    "uploadcare": {
+      "publickey": "********************"
+    }
+  },
+  "private": {
+    "uploadcare": {
+      "secretkey": "********************"
+    }
+  }
+}
+```
+
 ### Loading the Uploadcare library
 
 You can load the Uploadcare library (2.5.5) in your router or directly into a template by using
