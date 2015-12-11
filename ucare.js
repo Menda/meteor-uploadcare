@@ -1,11 +1,25 @@
 Ucare = {};
 
-Ucare.store = function(image) {
-  Meteor.call('addToMediaStorage', image);
+Ucare.store = function(image, callback) {
+  Meteor.call('addToMediaStorage', image, function(err, res){
+    if (typeof callback === "function") {
+      if(err){
+        return callback(err, null);
+      }
+      return callback(null, res);
+    }
+  });
 };
 
-Ucare.delete = function(image) {
-  Meteor.call('removeFromMediaStorage', image);
+Ucare.delete = function(image, callback) {
+  Meteor.call('removeFromMediaStorage', image, function(err, res){
+    if (typeof callback === "function") {
+      if(err){
+        return callback(err, null);
+      }
+      return callback(null, res);
+    }
+  });
 };
 
 //---------
