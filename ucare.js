@@ -52,8 +52,8 @@ Ucare.load = function(key, callback) {
 
       let widgetVersion = "2.5.9";
 
-      if(Meteor.settings.public.uploadcare.widgetVersion){
-         widgetVersion = Meteor.settings.public.uploadcare.widgetVersion;
+      if(Meteor.settings.public.uploadcare.version){
+         widgetVersion = Meteor.settings.public.uploadcare.version;
       }
 
       // Generate a script tag

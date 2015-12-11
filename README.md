@@ -30,15 +30,27 @@ To use <a href="https://uploadcare.com/">Uploadcare</a> you'll need an account (
 }
 ```
 
-### Loading the Uploadcare library
+### Loading the Uploadcare Widget
 
-You can load the Uploadcare library (2.5.5) in your router or directly into a template by using
+You can load the Uploadcare library in your router or directly into a template by using
 
 ``` js
 Ucare.load();
 ```
 
-The library only loads if it hasn't already, so you don't need to worry about multiple loads.
+The library only loads if it hasn't already, so you don't need to worry about multiple loads. We provide and update a default widget version, but you can also specify a widget version in your settings which will override the default.
+
+``` js
+{
+  "public": {
+    "uploadcare": {
+      "publickey": "********************",
+      "version" : "2.5.9"
+    }
+  },
+  ...
+}
+```
 
 ### Storing and Removing
 
@@ -50,24 +62,12 @@ Ucare.store(cdnLink);
 Ucare.delete(uuid);
 ```
 
-### Logging User Media
-
-These functions also have an optional second argument. If you provide a userId, the functions will attempt to store or remove the image cdnLink or uuid from a userMedia field in the user's profile. This is useful for keeping track of all the images a user has uploaded.
+Both of these methods have an optional callback that will return the file size of the image. You can use this information to track user media and storage.
 
 ``` js
-//Both functions will take a cdnLink or uuid
-let user = Meteor.userId();
-Ucare.store(cdnLink, user);
-```
-
-If you use Simple Schema, just include the following field definition within the user profile schema.
-
-``` js
-//Path would be profile.userMedia
-userMedia: {
-  type: [String],
-  optional: true
-},
+Ucare.store(link, function(err, filesize){
+  //Do something with 'link' and 'filesize'
+});
 ```
 
 ### Browser Policy

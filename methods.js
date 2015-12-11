@@ -25,8 +25,8 @@ Meteor.methods({
           future.return(err);
         } else {
 
-          let fileSize = res.data.size;
-          future.return(fileSize);
+          let filesize = res.data.size;
+          future.return(filesize);
 
         }
       }
@@ -58,8 +58,8 @@ Meteor.methods({
           future.return(err);
         } else {
 
-          let fileSize = res.data.size;
-          future.return(fileSize);
+          let filesize = res.data.size;
+          future.return(filesize);
 
         }
       }
