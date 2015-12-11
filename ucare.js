@@ -36,10 +36,16 @@ Ucare.load = function(key, callback) {
         }
       };
 
+      let widgetVersion = "2.5.9";
+
+      if(Meteor.settings.public.uploadcare.widgetVersion){
+         widgetVersion = Meteor.settings.public.uploadcare.widgetVersion;
+      }
+
       // Generate a script tag
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = "https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.full.min.js";
+      script.src = "https://ucarecdn.com/widget/" + widgetVersion + "/uploadcare/uploadcare.full.min.js";
       script.onload = loadCallback;
       script.onerror = errorCallback;
 
