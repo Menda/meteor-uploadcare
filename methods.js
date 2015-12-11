@@ -2,9 +2,8 @@ Future = Npm && Npm.require('fibers/future');
 
 Meteor.methods({
 
-  addToMediaStorage: function (image, user) {
+  addToMediaStorage: function (image) {
     check(image, String);
-    check(user, Match.Optional(String));
 
     this.unblock();
 
@@ -26,13 +25,7 @@ Meteor.methods({
           future.return(err, null);
         } else {
 
-          if(user){
-            Meteor.users.update(user, {
-              $addToSet: {
-                "profile.userMedia": image
-              }
-            });
-          }
+          //Add return for filesize
 
           future.return(null, true);
         }
@@ -42,9 +35,8 @@ Meteor.methods({
     return future.wait();
   },
 
-  removeFromMediaStorage: function (image, user) {
+  removeFromMediaStorage: function (image) {
     check(image, String);
-    check(user, Match.Optional(String));
 
     this.unblock();
 
@@ -61,13 +53,7 @@ Meteor.methods({
       }
     );
 
-    if(user){
-      Meteor.users.update(user, {
-        $pull: {
-          "profile.userMedia": image
-        }
-      });
-    }
+    //Add return for filesize
 
   }
 
