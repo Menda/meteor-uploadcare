@@ -1,19 +1,11 @@
 Ucare = {};
 
-Ucare.store = function(image, user) {
-  if(user === undefined){
-    Meteor.call('addToMediaStorage', image);
-  } else {
-    Meteor.call('addToMediaStorage', image, user);
-  }
+Ucare.store = function(image) {
+  Meteor.call('addToMediaStorage', image);
 };
 
-Ucare.delete = function(image, user) {
-  if(user === undefined){
-    Meteor.call('removeFromMediaStorage', image);
-  } else {
-    Meteor.call('removeFromMediaStorage', image, user);
-  }
+Ucare.delete = function(image) {
+  Meteor.call('removeFromMediaStorage', image);
 };
 
 //---------
