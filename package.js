@@ -1,6 +1,6 @@
 Package.describe({
   name: 'smalljoys:uploadcare',
-  version: '0.2.0',
+  version: '0.2.1',
   summary: 'Joyful Meteor and Uploadcare integration',
   git: 'https://github.com/smalljoys/meteor-uploadcare',
   documentation: 'README.md'
@@ -18,5 +18,5 @@ Package.onUse(function(api) {
   api.addFiles(['policy.js'],'server');
 
   api.export('Ucare', ['client','server']);
-  
+
 });

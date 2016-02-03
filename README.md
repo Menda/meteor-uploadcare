@@ -65,8 +65,10 @@ Ucare.delete(uuid);
 Both of these methods have an optional callback that will return the file size of the image. You can use this information to track user media and storage.
 
 ``` js
-Ucare.store(link, function(err, filesize){
-  //Do something with 'link' and 'filesize'
+Ucare.store(link, (err, filesize) => {
+  if (filesize) {
+    //Do something with 'link' and 'filesize'
+  }
 });
 ```
 
@@ -96,6 +98,9 @@ BrowserPolicy.content.setPolicy(constructedCsp +" media-src blob:;");
 - Provide callback for uploadcare loaded
 
 Feel free to make suggestions or log issues on this repo. We will also review pull requests.
+
+### Change-Log
+0.2.1 - Underlying HTTP methods only run on the server to stop error messages in the console.
 
 
 ### Credits
